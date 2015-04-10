@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,12 +56,16 @@ public class MainActivity extends ActionBarActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        ArrayAdapter<String> mForecastAdapter;
+
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             //Some dummy data
             String[] data = {
@@ -74,8 +79,16 @@ public class MainActivity extends ActionBarActivity {
 
 
             List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            
+
+
+            //Create an ArrayAdapter
+            mForecastAdapter = new ArrayAdapter<String>(
+                    getActivity(),
+                    R.layout.list_item_forecast,
+                    weekForecast);
+
+
+          
             return rootView;
         }
     }
