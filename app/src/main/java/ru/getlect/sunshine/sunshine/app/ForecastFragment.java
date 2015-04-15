@@ -54,7 +54,7 @@ public class ForecastFragment extends Fragment {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
             FetchWeatherTask weatherTask = new FetchWeatherTask();
-            weatherTask.execute("94043");
+            weatherTask.execute("127474");
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -194,7 +194,7 @@ public class ForecastFragment extends Fragment {
                 }
 
                 for (String s : resultStrs) {
-                    Log.v(LOG_TAG, "Forecast entry: " + s);
+
                 }
                 return resultStrs;
 
@@ -238,7 +238,7 @@ public class ForecastFragment extends Fragment {
 
                     URL url = new URL(builtUri.toString());
 
-                    Log.v(LOG_TAG, "Built URI " + builtUri.toString());
+
 
 
 
@@ -270,7 +270,7 @@ public class ForecastFragment extends Fragment {
                     }
                     forecastJsonStr = buffer.toString();
 
-                    Log.v(LOG_TAG, "Forecast string: " + forecastJsonStr);
+
 
 
                 } catch (IOException e) {
@@ -304,6 +304,17 @@ public class ForecastFragment extends Fragment {
             }
 
 
+            @Override
+            protected void onPostExecute(String[] result) {
+                if (result != null) {
+                    mForecastAdapter.clear();
+                    for (String dayForecastStr : result) {
+                        mForecastAdapter.add(dayForecastStr);
+                    }
+                    // New data is back from the server
+                }
+
+            }
 
         }
     }
