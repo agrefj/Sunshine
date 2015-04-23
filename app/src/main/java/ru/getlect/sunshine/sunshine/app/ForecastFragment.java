@@ -312,7 +312,7 @@ public class ForecastFragment extends Fragment {
                     Log.e("PlaceholderFragment", "Error ", e);
                     // If the code didn't successfully get the weather data, there's no point in attempting
                     // to parse it.
-                    forecastJsonStr = null;
+                    return null;
                 } finally {
                     if (urlConnection != null) {
                         urlConnection.disconnect();
