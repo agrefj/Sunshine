@@ -36,7 +36,9 @@
         </activity>
         <provider
             android:authorities="ru.getlect.sunshine.sunshine"
-            android:name=".data.WeatherProvider"/>
+            android:name=".data.WeatherProvider"
+            android:enabled="true"
+            android:exported="true"/>
 
     </application>
 
