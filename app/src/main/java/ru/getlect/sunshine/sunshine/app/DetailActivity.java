@@ -77,6 +77,7 @@ public class DetailActivity extends ActionBarActivity {
                 WeatherEntry.COLUMN_DATE,
                 WeatherEntry.COLUMN_SHORT_DESC,
                 WeatherEntry.COLUMN_MAX_TEMP,
+                WeatherEntry.COLUMN_MIN_TEMP
         };
 
         // these constants correspond to the projection defined above, and must change if the
@@ -87,6 +88,7 @@ public class DetailActivity extends ActionBarActivity {
         private static final int COL_WEATHER_DESC = 2;
         private static final int COL_WEATHER_MAX_TEMP = 3;
         private static final int COL_WEATHER_MIN_TEMP = 4;
+
 
 
         public DetailFragment() {
